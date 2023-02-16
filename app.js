@@ -1,3 +1,5 @@
+"use strict";
+
 // select elements
 const startBtn = document.querySelector(".start_game");
 
@@ -33,7 +35,10 @@ startBtn.addEventListener("click", function () {
         );
       }
       if (hiddenCharacters[indexValue] === " ") {
-        updateCh = hiddenCharacters.replace(hiddenCharacters[indexValue], " ");
+        updateCh = hiddenCharacters.replace(
+          hiddenCharacters[indexValue + 1],
+          keyValue
+        );
       }
       console.log(updateCh);
     } else {
