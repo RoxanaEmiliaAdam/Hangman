@@ -76,7 +76,7 @@ const displayWrongGuess = function () {
   } else {
     displayMessage(`Game Over! Correct word is "${guess.join("")}"`);
     displayIncorrectGuesses(keyValue);
-    nrGuesses.textContent = `0 of 5`;
+    nrGuesses.textContent = 0;
     startBtn.disabled = true;
     message.classList.add("loose");
   }
