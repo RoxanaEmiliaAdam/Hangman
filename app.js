@@ -39,7 +39,7 @@ init();
 const createStartBtn = function () {
   guess = document.getElementById("guess").value.toUpperCase().split("");
   console.log(guess);
-
+  document.getElementById("guess").value = "";
   // create underline characters for unknown word
   hiddenCharacters = guess.map((letter) => "_");
 
@@ -76,6 +76,7 @@ const displayWrongGuess = function () {
   } else {
     displayMessage(`Game Over! Correct word is "${guess.join("")}"`);
     displayIncorrectGuesses(keyValue);
+    document.removeEventListener("keydown", replaceCharacters);
     nrGuesses.textContent = 0;
     startBtn.disabled = true;
     message.classList.add("loose");
@@ -109,4 +110,7 @@ startBtn.addEventListener("click", createStartBtn);
 
 // NEW GAME button
 
-newGameBtn.addEventListener("click", init);
+newGameBtn.addEventListener("click", function () {
+  document.removeEventListener("keydown", replaceCharacters);
+  init();
+});
